@@ -6,7 +6,6 @@ var direction : Vector2 = Vector2.ZERO
 const DASH_VELOCITY = -400.0
 var state : String = "idle"
 
-@onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _process( delta: float ):
