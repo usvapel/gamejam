@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbt6gaq2pc2i5"]
+[gd_scene load_steps=3 format=3 uid="uid://bbt6gaq2pc2i5"]
 
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bwmrrcxqy38hm" path="res://scenes/level.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(0, 2)
+
+[node name="TileMap" parent="." instance=ExtResource("2_0xm2m")]
+visibility_layer = 2
 
 [node name="Player" parent="." instance=ExtResource("1_0xm2m")]
+top_level = true
 position = Vector2(-23, -4)
