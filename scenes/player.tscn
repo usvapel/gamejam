@@ -56,20 +56,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(4, 4)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 3.0
+height = 8.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_g2els")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_fjrip")
-animation = &"idle"
+animation = &"move"
+frame = 2
+frame_progress = 0.75821733
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_g2els")
+position = Vector2(0, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_g2els")
