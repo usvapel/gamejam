@@ -10,6 +10,9 @@ var health = 100
 @onready var state_machine : StateMachine = %StateMachine
 #@onready var health_bar_ui = $"../../CanvasLayer/HealthBar"
 
+# sounds
+@onready var sfx_walk: AudioStreamPlayer = $sfx_walk
+
 func _ready():
 	#if health_bar_ui:
 		#health_bar_ui.update_health(health, max_health)
@@ -18,11 +21,18 @@ func _ready():
 func _process( _delta: float ):
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	
 	pass
 	
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+	# play sound
+	if direction.length() > 0:
+		if not sfx_walk.playing:
+			sfx_walk.play()
+	else:
+		sfx_walk.stop()
 
 func set_direction() -> bool:
 	var new_dir : Vector2 = cardinal_direction

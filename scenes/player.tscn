@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b15tgnborxqam"]
+[gd_scene load_steps=16 format=3 uid="uid://b15tgnborxqam"]
 
 [ext_resource type="Script" uid="uid://x2ycciryuxk0" path="res://Scripts/Player/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://bg0ulbwbayfmd" path="res://Scripts/Player/state_machine.gd" id="2_tuyoq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dbimbkx7cel0n" path="res://Scripts/Player/player_state_move.gd" id="4_fjrip"]
 [ext_resource type="Script" uid="uid://cijtfcmyppwwh" path="res://Scripts/Player/player_light.gd" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bg33a7divqexk" path="res://Assets/Players/No Outlines/players blue x1.png" id="6_smehm"]
+[ext_resource type="AudioStream" uid="uid://c7kjkxoxx4c4g" path="res://Assets/sounds/walking4.mp3" id="8_smehm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 2.0
@@ -106,3 +107,9 @@ texture = ExtResource("4_dqkch")
 offset = Vector2(130, 0)
 texture_scale = 0.25
 script = ExtResource("4_qlg0r")
+
+[node name="sfx_walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_smehm")
+volume_db = -0.887
+bus = &"walking"
+parameters/looping = false
