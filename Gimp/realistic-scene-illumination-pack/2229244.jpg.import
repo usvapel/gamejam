@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ditfsukcxogb6"
-path="res://.godot/imported/radial_light_h30_128x128.png-3d84f19df6becf62d4c5f1a8469814ca.ctex"
+uid="uid://bwursgx6o12d4"
+path="res://.godot/imported/2229244.jpg-77f27548d987353d76bb1b6b21a64a52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Light/radial_light_h30_128x128.png"
-dest_files=["res://.godot/imported/radial_light_h30_128x128.png-3d84f19df6becf62d4c5f1a8469814ca.ctex"]
+source_file="res://Gimp/realistic-scene-illumination-pack/2229244.jpg"
+dest_files=["res://.godot/imported/2229244.jpg-77f27548d987353d76bb1b6b21a64a52.ctex"]
 
 [params]
 

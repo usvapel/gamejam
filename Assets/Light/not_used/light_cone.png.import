@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csbexmyivsiec"
-path="res://.godot/imported/radial_light_half_h30_128x128.png-68fb906f35b5c9ff37ddb8dd495b8e64.ctex"
+uid="uid://c7hl3veqswqga"
+path="res://.godot/imported/light_cone.png-20cd5565403442e45a678e692ef7b16f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Light/radial_light_half_h30_128x128.png"
-dest_files=["res://.godot/imported/radial_light_half_h30_128x128.png-68fb906f35b5c9ff37ddb8dd495b8e64.ctex"]
+source_file="res://Assets/Light/not_used/light_cone.png"
+dest_files=["res://.godot/imported/light_cone.png-20cd5565403442e45a678e692ef7b16f.ctex"]
 
 [params]
 
