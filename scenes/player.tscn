@@ -89,8 +89,10 @@ offset = Vector2(0, -16)
 
 [node name="PlayerLight" type="PointLight2D" parent="."]
 color = Color(0.7762418, 0.7801363, 0.62890625, 1)
+range_z_max = 3
 shadow_enabled = true
 shadow_filter_smooth = 2.0
+shadow_item_cull_mask = 3
 texture = ExtResource("4_dqkch")
 offset = Vector2(130, 0)
 texture_scale = 0.25
