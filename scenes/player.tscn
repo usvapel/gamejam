@@ -69,9 +69,9 @@ shape = SubResource("CapsuleShape2D_1bvp3")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_4c57u")
 animation = &"move"
+offset = Vector2(0, -16)
 
 [node name="PlayerLight" type="PointLight2D" parent="."]
 color = Color(0.7762418, 0.7801363, 0.62890625, 1)
