@@ -13,13 +13,14 @@ func _ready() -> void:
 	nav.target_desired_distance = 10
 	
 func _process(delta: float) -> void:
-	if label:
-		label.text = "State: %s\nDone: %s\nReached: %s\nReachable: %s" % [
-			state_machine.current_state.name if state_machine.current_state else "None",
-			nav.is_navigation_finished(),
-			nav.is_target_reached(),
-			nav.is_target_reachable()
-		]
+	#if label:
+		#label.text = "State: %s\nDone: %s\nReached: %s\nReachable: %s" % [
+			#state_machine.current_state.name if state_machine.current_state else "None",
+			#nav.is_navigation_finished(),
+			#nav.is_target_reached(),
+			#nav.is_target_reachable()
+		#]
+	pass
 
 #var idle : bool = true
 #var state = { "idle": false, "wandering": false }
