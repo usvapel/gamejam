@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://b15tgnborxqam"]
+[gd_scene load_steps=15 format=3 uid="uid://b15tgnborxqam"]
 
 [ext_resource type="Texture2D" uid="uid://bav5uq1a3jmht" path="res://Assets/Players/players blue x1.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://x2ycciryuxk0" path="res://Scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://x2ycciryuxk0" path="res://Scripts/Player/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://bg0ulbwbayfmd" path="res://Scripts/Player/state_machine.gd" id="2_tuyoq"]
+[ext_resource type="Script" uid="uid://dd0wt50r8i0lt" path="res://Scripts/Player/player_state_idle.gd" id="3_fjrip"]
 [ext_resource type="Texture2D" uid="uid://p2li2gvbtshi" path="res://Assets/Light/light_cone_player_light2.png" id="4_dqkch"]
-[ext_resource type="Script" uid="uid://cijtfcmyppwwh" path="res://Scripts/player_light.gd" id="4_qlg0r"]
+[ext_resource type="Script" uid="uid://dbimbkx7cel0n" path="res://Scripts/Player/player_state_move.gd" id="4_fjrip"]
+[ext_resource type="Script" uid="uid://cijtfcmyppwwh" path="res://Scripts/Player/player_light.gd" id="4_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 2.0
@@ -61,6 +64,16 @@ animations = [{
 y_sort_enabled = true
 script = ExtResource("1_g2els")
 
+[node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_tuyoq")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_fjrip")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("4_fjrip")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 rotation = 1.5707964
@@ -69,6 +82,7 @@ shape = SubResource("CapsuleShape2D_1bvp3")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_4c57u")
 animation = &"move"
 offset = Vector2(0, -16)
