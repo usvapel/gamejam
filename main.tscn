@@ -248,6 +248,7 @@ sources/0 = SubResource("TileSetAtlasSource_1bvp3")
 [node name="Main" type="Node2D"]
 
 [node name="Global light" type="CanvasModulate" parent="."]
+color = Color(0.09560982, 0.107953124, 0.09487768, 1)
 
 [node name="world" type="Node2D" parent="."]
 y_sort_enabled = true
