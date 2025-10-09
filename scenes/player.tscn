@@ -61,6 +61,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+light_mask = 2
 y_sort_enabled = true
 script = ExtResource("1_g2els")
 
@@ -83,6 +84,7 @@ shape = SubResource("CapsuleShape2D_1bvp3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+light_mask = 2
 sprite_frames = SubResource("SpriteFrames_4c57u")
 animation = &"idle"
 offset = Vector2(0, -16)
@@ -90,6 +92,15 @@ offset = Vector2(0, -16)
 [node name="PlayerLight" type="PointLight2D" parent="."]
 color = Color(0.7762418, 0.7801363, 0.62890625, 1)
 shadow_enabled = true
+shadow_filter_smooth = 2.0
+texture = ExtResource("4_dqkch")
+offset = Vector2(130, 0)
+texture_scale = 0.25
+script = ExtResource("4_qlg0r")
+
+[node name="PlayerLightWalls" type="PointLight2D" parent="."]
+color = Color(0.7762418, 0.7801363, 0.62890625, 1)
+range_item_cull_mask = 2
 shadow_filter_smooth = 2.0
 texture = ExtResource("4_dqkch")
 offset = Vector2(130, 0)
