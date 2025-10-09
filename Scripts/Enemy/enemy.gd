@@ -7,19 +7,38 @@ class_name Enemy extends CharacterBody2D
 @onready var label = $Label
 
 @export var speed = 30
+var ray_query: PhysicsRayQueryParameters2D
 
 func _ready() -> void:
 	nav.path_desired_distance = 5
 	nav.target_desired_distance = 10
+	ray_query = PhysicsRayQueryParameters2D.new()
+	ray_query.collide_with_areas = false
+	ray_query.collide_with_bodies = true
+	ray_query.exclude = [get_rid()]
+	
+func can_see_player(player: Node2D) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	ray_query.from = global_position
+	ray_query.to = player.global_position
+	var result = space_state.intersect_ray(ray_query)
+	
+	if result.is_empty():
+		return true
+	
+	return result.collider == player
 	
 func _process(delta: float) -> void:
-	if label:
-		label.text = "State: %s\nDone: %s\nReached: %s\nReachable: %s" % [
-			state_machine.current_state.name if state_machine.current_state else "None",
-			nav.is_navigation_finished(),
-			nav.is_target_reached(),
-			nav.is_target_reachable()
-		]
+	if velocity.x != 0:
+		animated_sprite.flip_h = velocity.x < 0
+	#if label:
+		#label.text = "State: %s\nDone: %s\nReached: %s\nReachable: %s" % [
+			#state_machine.current_state.name if state_machine.current_state else "None",
+			#nav.is_navigation_finished(),
+			#nav.is_target_reached(),
+			#nav.is_target_reachable()
+		#]
+	pass
 
 #var idle : bool = true
 #var state = { "idle": false, "wandering": false }
