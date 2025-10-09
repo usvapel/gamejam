@@ -9,6 +9,7 @@ func enter():
 	
 func exit():
 	pass
+	
 
 func process(_delta: float) -> State:
 	if player.direction == Vector2.ZERO:

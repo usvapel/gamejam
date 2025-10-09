@@ -1,5 +1,8 @@
 extends TileMapLayer
 
+@onready var sfx_door_open: AudioStreamPlayer = $sfx_door_open
+@onready var sfx_door_close: AudioStreamPlayer = $sfx_door_close
+
 var door_tiles = {}
 var player_node = null
 
@@ -67,6 +70,8 @@ func toggle_door(pos: Vector2i):
 	if current_state == DoorState.CLOSED:
 		door_states[pos] = DoorState.OPEN
 		set_cell(pos, door_data.source_id, door_data.open_coords)
+		sfx_door_open.play()
 	else:
 		door_states[pos] = DoorState.CLOSED
 		set_cell(pos, door_data.source_id, door_data.closed_coords)
+		sfx_door_close.play()
