@@ -1,33 +1,37 @@
 [gd_scene load_steps=10 format=3 uid="uid://b15tgnborxqam"]
 
 [ext_resource type="Texture2D" uid="uid://bav5uq1a3jmht" path="res://Assets/Players/players blue x1.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://bxl1tr40cm3dq" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://x2ycciryuxk0" path="res://character_body_2d.gd" id="1_g2els"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
+radius = 2.0
+height = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 0, 32, 34)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 102, 32, 34)
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(32, 102, 32, 34)
+region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(64, 102, 32, 34)
+region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(96, 102, 32, 34)
+region = Rect2(96, 96, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fjrip"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fjrip")
+"texture": SubResource("AtlasTexture_g2els")
 }],
 "loop": true,
 "name": &"idle",
@@ -48,32 +52,21 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
-"speed": 7.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 3.0
-height = 8.0
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
-motion_mode = 1
+y_sort_enabled = true
 script = ExtResource("1_g2els")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -14)
-sprite_frames = SubResource("SpriteFrames_fjrip")
-animation = &"move"
-frame = 2
-frame_progress = 0.75821733
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_g2els")
+shape = SubResource("CapsuleShape2D_1bvp3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_4c57u")
+animation = &"move"
