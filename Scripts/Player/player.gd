@@ -3,11 +3,16 @@ class_name Player extends CharacterBody2D
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 const DASH_VELOCITY = -400.0
+var max_health = 100 
+var health = 100
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine : StateMachine = %StateMachine
+@onready var health_bar_ui = $"../../CanvasLayer/HealthBar"
 
 func _ready():
+	if health_bar_ui:
+		health_bar_ui.update_health(health, max_health)
 	state_machine.initialize(self)
 
 func _process( _delta: float ):
@@ -36,3 +41,13 @@ func set_direction() -> bool:
 func update_animation (state : String):
 	animated_sprite.play(state)
 	pass
+	
+func take_damage(amount: int) -> void:
+	health -= amount
+	print("Player took ", amount, " damage! Health: ", health)
+	
+	if health <= 0:
+		die()
+
+func die() -> void:
+	print("Player died!")

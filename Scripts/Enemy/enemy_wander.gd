@@ -4,6 +4,7 @@ var target: Vector2
 
 func enter() -> void:
 	enemy.animated_sprite.play("walk")
+	enemy.animated_sprite.speed_scale = 1.0
 	set_random_target()
 	
 		
@@ -14,11 +15,9 @@ func set_random_target() -> void:
 
 func physics_update(delta: float) -> void:
 	var player = enemy.get_tree().get_first_node_in_group("player")
-	print("Player, ", player)
 	if player:
 		var distance = enemy.global_position.distance_to(player.global_position)
-		print("Distance: ", distance)
-		if distance < 150:
+		if distance < 100 && enemy.can_see_player(player):
 			get_parent().transition_to("chasestate")
 			return
 	if enemy.nav.is_navigation_finished():
