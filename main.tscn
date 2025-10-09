@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bbt6gaq2pc2i5"]
+[gd_scene load_steps=17 format=4 uid="uid://bbt6gaq2pc2i5"]
 
 [ext_resource type="PackedScene" uid="uid://b15tgnborxqam" path="res://scenes/player.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bglxnj41oacal" path="res://scenes/enemy.tscn" id="1_5vw27"]
@@ -10,6 +10,8 @@
 [ext_resource type="TileSet" uid="uid://bmuojq5d5odmy" path="res://tilemap_occlusion.tres" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://6kofebnjcpud" path="res://scenes/bin.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://1s307asmyhly" path="res://scenes/tube.tscn" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://c3uslvob1an2o" path="res://Assets/sounds/door_open1.mp3" id="7_dg77c"]
+[ext_resource type="AudioStream" uid="uid://chfdrlf7y7o4o" path="res://Assets/sounds/door_close.mp3" id="8_ycdy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("1_h2yge")
@@ -325,6 +327,14 @@ tile_set = ExtResource("2_h2yge")
 script = ExtResource("3_5vw27")
 metadata/id_door = true
 
+[node name="sfx_door_open" type="AudioStreamPlayer" parent="world/Layer2 - doors"]
+stream = ExtResource("7_dg77c")
+volume_db = -25.0
+
+[node name="sfx_door_close" type="AudioStreamPlayer" parent="world/Layer2 - doors"]
+stream = ExtResource("8_ycdy4")
+volume_db = -25.0
+
 [node name="Layer3 - props" type="TileMapLayer" parent="world"]
 z_index = 2
 y_sort_enabled = true
@@ -340,7 +350,7 @@ tile_map_data = PackedByteArray("AADv/woAAQAMAAcAAAD4/woAAQAMAAcAAADu/woAAQABAAA
 tile_set = ExtResource("2_h2yge")
 
 [node name="Player" parent="world" instance=ExtResource("1_0xm2m")]
-position = Vector2(983, -439)
+position = Vector2(276, -48)
 
 [node name="Free arrange objcets" type="Node2D" parent="world"]
 y_sort_enabled = true
@@ -376,6 +386,7 @@ position = Vector2(508, -94)
 position = Vector2(357, 41)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="world"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_5vw27")
 
 [node name="Layer1 - walls2" type="TileMapLayer" parent="world/NavigationRegion2D"]

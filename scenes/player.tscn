@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dbimbkx7cel0n" path="res://Scripts/Player/player_state_move.gd" id="4_fjrip"]
 [ext_resource type="Script" uid="uid://cijtfcmyppwwh" path="res://Scripts/Player/player_light.gd" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bg33a7divqexk" path="res://Assets/Players/No Outlines/players blue x1.png" id="6_smehm"]
-[ext_resource type="AudioStream" uid="uid://c7kjkxoxx4c4g" path="res://Assets/sounds/walking4.mp3" id="8_smehm"]
+[ext_resource type="AudioStream" uid="uid://csgyjj2j7tpo7" path="res://Assets/sounds/walking5.wav" id="8_smehm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 2.0
@@ -110,6 +110,5 @@ script = ExtResource("4_qlg0r")
 
 [node name="sfx_walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_smehm")
-volume_db = -0.887
+volume_db = -32.149
 bus = &"walking"
-parameters/looping = false
