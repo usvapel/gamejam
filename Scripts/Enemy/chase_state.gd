@@ -8,7 +8,7 @@ var multiplier = 1
 var has_exploded = false  
 
 func enter() -> void:
-	enemy.animated_sprite.play("explosion")
+	enemy.animated_sprite.play("walk1")
 	
 	has_exploded = false
 	multiplier = 1
@@ -19,11 +19,10 @@ func physics_update(delta: float) -> void:
 		return
 
 	var distance = enemy.global_position.distance_to(player.global_position)
-	if distance <= 5 and not has_exploded:
+	if distance <= 20 and not has_exploded:
 		#get_parent().transition_to("explosionstate")
 		sfx_explosion.play()
 		explode()
-		return
 	if distance > 150 or not enemy.can_see_player(player):
 		get_parent().transition_to("wanderstate")
 		return
@@ -46,7 +45,7 @@ func explode() -> void:
 	enemy.animated_sprite.speed_scale = 1.0
 	
 	if player and player.has_method("take_damage"):
-		player.take_damage(50)
+		player.take_damage(20)
 	
 	await get_tree().create_timer(0.5).timeout 
 	enemy.queue_free()

@@ -23,8 +23,8 @@ func physics_update(delta: float) -> void:
 func explode() -> void:
 	if player and player.has_method("take_damage"):
 		var distance = enemy.global_position.distance_to(player.global_position)
-		if distance <= 50:  # Explosion radius
-			player.take_damage(50)  # Half of 100 health
+		if distance <= 20:  # Explosion radius
+			player.take_damage(20)  # Half of 100 health
 	
 	# Remove the enemy
 	enemy.queue_free()
