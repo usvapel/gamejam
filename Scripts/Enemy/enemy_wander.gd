@@ -3,7 +3,7 @@ extends EnemyState
 var target: Vector2
 
 func enter() -> void:
-	enemy.animated_sprite.play("walk")
+	enemy.animated_sprite.play("walk1")
 	enemy.animated_sprite.speed_scale = 1.0
 	set_random_target()
 	

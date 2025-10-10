@@ -1,7 +1,7 @@
 class_name EnemyIdleState extends EnemyState
 
 func enter() -> void:
-	enemy.animated_sprite.play("idle")
+	enemy.animated_sprite.play("idle1")
 
 func physics_update(delta: float) -> void:
 	var player = enemy.get_tree().get_first_node_in_group("player")
