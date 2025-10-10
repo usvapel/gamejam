@@ -62,6 +62,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 light_mask = 0
+visibility_layer = 2
 y_sort_enabled = true
 script = ExtResource("1_g2els")
 
