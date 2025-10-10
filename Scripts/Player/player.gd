@@ -5,6 +5,7 @@ var direction : Vector2 = Vector2.ZERO
 const DASH_VELOCITY = -400.0
 var max_health = 100 
 var health = 100
+var collectibles = 0
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine : StateMachine = %StateMachine
