@@ -156,7 +156,6 @@ animations = [{
 [node name="Main" type="Node2D"]
 
 [node name="Global light" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.07323221, 0.09373083, 0.058860645, 1)
 
 [node name="world" type="Node2D" parent="."]

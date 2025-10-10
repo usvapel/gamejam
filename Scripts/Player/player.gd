@@ -6,6 +6,9 @@ const DASH_VELOCITY = -400.0
 var max_health = 100 
 var health = 100
 
+var spawn_position: Vector2
+@export var respawn_delay: float = 2.0
+
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine : StateMachine = %StateMachine
 #@onready var health_bar_ui = $"../../CanvasLayer/HealthBar"
@@ -18,13 +21,13 @@ func _ready():
 	#if health_bar_ui:
 		#health_bar_ui.update_health(health, max_health)
 	state_machine.initialize(self)
+	spawn_position = global_position
 
 func _process( _delta: float ):
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
 	pass
-	
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
@@ -61,5 +64,19 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
-	print("Player died!")
-	get_tree().quit()
+	hide()
+	set_physics_process(false)
+	set_process(false)
+	$CollisionShape2D.set_deferred("disabled", true)
+
+	await get_tree().create_timer(respawn_delay).timeout
+	respawn()
+
+func respawn() -> void:
+	global_position = spawn_position
+	health = max_health
+	health_bar.play("100")
+	show()
+	set_physics_process(true)
+	set_process(true)
+	$CollisionShape2D.disabled = false
