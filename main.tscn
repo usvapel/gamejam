@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://1s307asmyhly" path="res://scenes/tube.tscn" id="6_7mycd"]
 [ext_resource type="AudioStream" uid="uid://c3uslvob1an2o" path="res://Assets/sounds/door_open1.mp3" id="7_dg77c"]
 [ext_resource type="AudioStream" uid="uid://chfdrlf7y7o4o" path="res://Assets/sounds/door_close.mp3" id="8_ycdy4"]
-[ext_resource type="PackedScene" path="res://scenes/collectible.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://buxudwy6r3cj4" path="res://scenes/collectible.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bvpbnltwsjm3p" path="res://scenes/door_indicators/door_indicator0.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cgegi0ynkcgm2" path="res://scenes/doors/objective_door1.tscn" id="13_cegan"]
 [ext_resource type="PackedScene" uid="uid://p4qb0m5ib34y" path="res://scenes/doors/objective_door0.tscn" id="13_ycdy4"]
@@ -156,6 +156,7 @@ animations = [{
 [node name="Main" type="Node2D"]
 
 [node name="Global light" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.07323221, 0.09373083, 0.058860645, 1)
 
 [node name="world" type="Node2D" parent="."]
@@ -218,13 +219,53 @@ position = Vector2(976, -589)
 y_sort_enabled = true
 position = Vector2(1072, -589)
 
+[node name="enemy10" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-304, -1414)
+
+[node name="enemy9" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-186, -694)
+
+[node name="enemy8" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-474, -32)
+
+[node name="enemy7" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(368, 841)
+
+[node name="enemy6" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(256, 1309)
+
+[node name="enemy5" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-631, 1415)
+
+[node name="enemy11" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-990, -1119)
+
+[node name="enemy12" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-1175, -369)
+
+[node name="enemy13" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-647, -457)
+
+[node name="enemy14" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-541, 103)
+
+[node name="enemy15" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(9, 507)
+
+[node name="enemy16" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(18, -340)
+
+[node name="enemy4" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(-1196, 609)
+
 [node name="enemy3" parent="world" instance=ExtResource("1_5vw27")]
+position = Vector2(663, -879)
 
 [node name="enemy2" parent="world" instance=ExtResource("1_5vw27")]
-position = Vector2(-50, 87)
+position = Vector2(-1599, -745)
 
 [node name="enemy" parent="world" instance=ExtResource("1_5vw27")]
-position = Vector2(10, 127)
+position = Vector2(1030, 805)
 
 [node name="Layer0 - floor" type="TileMapLayer" parent="world"]
 z_index = -99

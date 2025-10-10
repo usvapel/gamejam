@@ -62,3 +62,4 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	print("Player died!")
+	get_tree().quit()

@@ -239,7 +239,6 @@ shape = SubResource("RectangleShape2D_md484")
 path_desired_distance = 50.0
 target_desired_distance = 100.0
 path_max_distance = 10.0
-debug_enabled = true
 debug_path_custom_color = Color(0.9751516, 0.5229057, 0.7830663, 1)
 debug_path_custom_line_width = 3.0
 
