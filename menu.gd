@@ -20,25 +20,16 @@ func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept"):
 		var focused = get_viewport().gui_get_focus_owner()
 		if focused:
+			sfx_press.play()
 			focused.emit_signal("pressed")
-
-func _input(event):
-	if Input.is_action_just_pressed("controller_X"):
-		btn = "start"
-		sfx_press.play()
-		fader.show()
-		timer.start()
-		anim.play("fade_in")
 
 func _on_button_pressed() -> void:
 	btn = "start"
-	sfx_press.play()
 	fader.show()
 	timer.start()
 	anim.play("fade_in")
 
 func _on_quit_pressed() -> void:
-	sfx_press.play()
 	btn = "quit"
 	fader.show()
 	timer.start()
