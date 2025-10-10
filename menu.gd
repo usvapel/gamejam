@@ -2,8 +2,13 @@ extends Node2D
 @onready var fader = $"fade"
 @onready var anim = $"fade/AnimationPlayer"
 @onready var timer = $"fade/Timer2"
-var btn = null
 
+@onready var sfx_theme: AudioStreamPlayer = $sfx_theme
+
+var btn = null
+func _ready():
+	sfx_theme.play()
+	
 func _on_button_pressed() -> void:
 	btn = "start"
 	fader.show()

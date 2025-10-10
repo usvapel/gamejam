@@ -419,3 +419,5 @@ tile_set = ExtResource("2_h2yge")
 [node name="Polygon2D" type="Polygon2D" parent="world/NavigationRegion2D"]
 visible = false
 polygon = PackedVector2Array(250, 70, 292, 70, 387, 49, 382, -96, 310, -136, 202, -130, 165, -86, 172, 59)
+
+[node name="Node2D" type="Node2D" parent="world"]
