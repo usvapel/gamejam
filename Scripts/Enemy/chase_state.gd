@@ -48,7 +48,7 @@ func explode() -> void:
 	enemy.animated_sprite.speed_scale = 1.0
 	
 	if player and player.has_method("take_damage"):
-		player.take_damage(50)
+		player.take_damage(20)
 	
 	await get_tree().create_timer(0.5).timeout 
 	enemy.queue_free()
