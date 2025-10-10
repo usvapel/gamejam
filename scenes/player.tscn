@@ -17,21 +17,21 @@ height = 6.0
 atlas = ExtResource("6_smehm")
 region = Rect2(0, 0, 32, 34)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("6_smehm")
+region = Rect2(0, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("6_smehm")
-region = Rect2(0, 102, 32, 34)
+region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
 atlas = ExtResource("6_smehm")
-region = Rect2(32, 102, 32, 34)
+region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("6_smehm")
-region = Rect2(64, 102, 32, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
-atlas = ExtResource("6_smehm")
-region = Rect2(96, 102, 32, 34)
+region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
 animations = [{
@@ -45,6 +45,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ur7pv")
 }, {
 "duration": 1.0,
@@ -52,9 +55,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d2wvv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3v2ag")
 }],
 "loop": true,
 "name": &"move",
@@ -87,7 +87,7 @@ shape = SubResource("CapsuleShape2D_1bvp3")
 unique_name_in_owner = true
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_4c57u")
-animation = &"idle"
+animation = &"move"
 offset = Vector2(0, -16)
 
 [node name="PlayerLight" type="PointLight2D" parent="."]
