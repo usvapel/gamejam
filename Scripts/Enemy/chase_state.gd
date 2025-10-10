@@ -15,8 +15,9 @@ func physics_update(delta: float) -> void:
 		return
 
 	var distance = enemy.global_position.distance_to(player.global_position)
-	if distance <= 10 and not has_exploded:
-		get_parent().transition_to("explosionstate")
+	if distance <= 5 and not has_exploded:
+		#get_parent().transition_to("explosionstate")
+		explode()
 		return
 	if distance > 150 or not enemy.can_see_player(player):
 		get_parent().transition_to("wanderstate")
@@ -36,7 +37,7 @@ func explode() -> void:
 	#print("exploding")
 	has_exploded = true
 	enemy.velocity = Vector2.ZERO
-	#enemy.animated_sprite.play("explosion")
+	enemy.animated_sprite.play("explosion")
 	enemy.animated_sprite.speed_scale = 1.0
 	
 	if player and player.has_method("take_damage"):

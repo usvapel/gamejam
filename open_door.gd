@@ -52,7 +52,7 @@ func handle_door_interaction():
 	
 	var adjacent_tiles = [
 		player_tile_pos + Vector2i(0, -1),  # Up
-		player_tile_pos,
+		player_tile_pos + Vector2i(0, 1),
 	]
 	
 	for tile_pos in adjacent_tiles:
