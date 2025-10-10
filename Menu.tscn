@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://dthh55edm5od4"]
+
+[ext_resource type="Script" uid="uid://cy6ymebstnx6n" path="res://menu.gd" id="1_uubjt"]
+[ext_resource type="Texture2D" uid="uid://b1owsq4ew6sbs" path="res://Assets/UI/c6c68a7a-db46-49e1-9e1e-f00ef38f27fe.jpg" id="2_5yleq"]
+[ext_resource type="Texture2D" uid="uid://7upe3ndy7wt4" path="res://Assets/UI/kenney_input-prompts-pixel-16/Tiles/tile_0089.png" id="3_n4eug"]
+[ext_resource type="Texture2D" uid="uid://bmeb4uuj055v" path="res://Assets/UI/kenney_input-prompts-pixel-16/Tiles/tile_0121.png" id="4_dlksc"]
+[ext_resource type="Texture2D" uid="uid://jtygg1uqw0bm" path="res://Assets/UI/kenney_input-prompts-pixel-16/Tiles/tile_0088.png" id="5_hcwhg"]
+[ext_resource type="Texture2D" uid="uid://bl36503fiwuvy" path="res://Assets/UI/kenney_input-prompts-pixel-16/Tiles/tile_0120.png" id="6_5p1lm"]
+[ext_resource type="PackedScene" uid="uid://b8wmmwv1nto5e" path="res://scenes/fade.tscn" id="7_dlksc"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_uubjt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 1
+offset_left = -58.0
+offset_top = -9.0
+offset_right = 716.788
+offset_bottom = 227.6668
+scale = Vector2(1, 1.1999993)
+texture = ExtResource("2_5yleq")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 456.0
+offset_top = 83.0
+offset_right = 556.0
+offset_bottom = 191.0
+color = Color(0.02745098, 0.02745098, 0.02745098, 0.68235296)
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 77.0
+offset_top = 96.0
+offset_right = 117.0
+offset_bottom = 136.0
+
+[node name="Node2D" type="Node2D" parent="Control/ColorRect/BoxContainer"]
+visible = false
+position = Vector2(142, -132)
+scale = Vector2(2, 2)
+
+[node name="Tile0090" type="Sprite2D" parent="Control/ColorRect/BoxContainer/Node2D"]
+position = Vector2(-48, 41)
+texture = ExtResource("3_n4eug")
+
+[node name="Tile0121" type="Sprite2D" parent="Control/ColorRect/BoxContainer/Node2D"]
+position = Vector2(-104, 41)
+texture = ExtResource("4_dlksc")
+
+[node name="Tile0088" type="Sprite2D" parent="Control/ColorRect/BoxContainer/Node2D"]
+position = Vector2(-62, 41)
+texture = ExtResource("5_hcwhg")
+
+[node name="Tile0089" type="Sprite2D" parent="Control/ColorRect/BoxContainer/Node2D"]
+position = Vector2(-90, 41)
+texture = ExtResource("3_n4eug")
+
+[node name="Tile0120" type="Sprite2D" parent="Control/ColorRect/BoxContainer/Node2D"]
+position = Vector2(-76, 41)
+texture = ExtResource("6_5p1lm")
+
+[node name="Start" type="Button" parent="Control"]
+modulate = Color(0.78577024, 1.5605725, 1.9114265, 1)
+self_modulate = Color(3.6722417, 3.944254, 5.7667327, 1)
+layout_mode = 0
+offset_left = 199.0
+offset_top = 132.0
+offset_right = 283.0
+offset_bottom = 163.0
+mouse_default_cursor_shape = 2
+text = "Start"
+
+[node name="Quit" type="Button" parent="Control"]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+self_modulate = Color(0, 0.5176471, 0.5137255, 1)
+texture_filter = 2
+layout_mode = 0
+offset_left = 199.0
+offset_top = 171.0
+offset_right = 283.0
+offset_bottom = 205.0
+mouse_default_cursor_shape = 8
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 168.0
+offset_top = 89.0
+offset_right = 329.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0.8392157, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.6, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
+text = "Space runner"
+
+[node name="fade" parent="." instance=ExtResource("7_dlksc")]
+visible = false
+
+[node name="Timer2" type="Timer" parent="fade"]
+
+[connection signal="pressed" from="Control/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="fade/Timer2" to="." method="_on_fade_timer"]
