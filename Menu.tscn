@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dthh55edm5od4"]
+[gd_scene load_steps=10 format=3 uid="uid://dthh55edm5od4"]
 
 [ext_resource type="Script" uid="uid://cy6ymebstnx6n" path="res://menu.gd" id="1_uubjt"]
 [ext_resource type="Texture2D" uid="uid://b1owsq4ew6sbs" path="res://Assets/UI/c6c68a7a-db46-49e1-9e1e-f00ef38f27fe.jpg" id="2_5yleq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bl36503fiwuvy" path="res://Assets/UI/kenney_input-prompts-pixel-16/Tiles/tile_0120.png" id="6_5p1lm"]
 [ext_resource type="PackedScene" uid="uid://b8wmmwv1nto5e" path="res://scenes/fade.tscn" id="7_dlksc"]
 [ext_resource type="AudioStream" uid="uid://bgtug6aw1hi4x" path="res://Assets/sounds/scary_theme.wav" id="8_hcwhg"]
+[ext_resource type="AudioStream" uid="uid://c8qm3kthj660r" path="res://Assets/sounds/menu_click.wav" id="9_5p1lm"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_uubjt")
@@ -111,6 +112,10 @@ visible = false
 [node name="sfx_theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_hcwhg")
 volume_db = -20.0
+
+[node name="sfx_press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5p1lm")
+volume_db = -4.0
 
 [connection signal="pressed" from="Control/Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

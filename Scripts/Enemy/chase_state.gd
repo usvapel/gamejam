@@ -1,5 +1,9 @@
 extends EnemyState
 @onready var player = $"../../../../Player"
+@onready var sfx_explosion: AudioStreamPlayer = $"../ExplosionState/sfx_explosion"
+
+
+
 var multiplier = 1
 var has_exploded = false  
 
@@ -17,6 +21,7 @@ func physics_update(delta: float) -> void:
 	var distance = enemy.global_position.distance_to(player.global_position)
 	if distance <= 5 and not has_exploded:
 		#get_parent().transition_to("explosionstate")
+		sfx_explosion.play()
 		explode()
 		return
 	if distance > 150 or not enemy.can_see_player(player):

@@ -1,4 +1,6 @@
 extends EnemyState
+@onready var sfx_explosion: AudioStreamPlayer = $sfx_explosion
+@onready var sfx_wander_2: AudioStreamPlayer2D = $"../WanderState/sfx_wander2"
 
 @onready var player: Node2D = $"../../../../Player"
 var explosion_timer: float = 0.0
@@ -14,6 +16,8 @@ func physics_update(delta: float) -> void:
 	explosion_timer += delta
 	print("Exploding")
 	if explosion_timer >= EXPLOSION_DELAY:
+		sfx_explosion.play()
+		sfx_wander_2.stop()
 		explode()
 
 func explode() -> void:
