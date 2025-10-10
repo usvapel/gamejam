@@ -111,7 +111,8 @@ offset_bottom = 124.0
 theme_override_colors/font_color = Color(0.8392157, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.6, 0, 0, 1)
 theme_override_font_sizes/font_size = 23
-text = "Space runner"
+text = "Derelict Ship
+"
 
 [node name="fade" parent="." instance=ExtResource("7_dlksc")]
 visible = false
