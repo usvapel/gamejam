@@ -285,7 +285,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1268, 1586, 1255, -1494
 [node name="Main" type="Node2D"]
 
 [node name="Global light" type="CanvasModulate" parent="."]
-color = Color(0.040799066, 0.0509265, 0.040799677, 1)
+visible = false
+color = Color(0.07323221, 0.09373083, 0.058860645, 1)
 
 [node name="world" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -320,6 +321,7 @@ tile_map_data = PackedByteArray("AADr/wUAAAABAAEAAADr/wYAAAACAAEAAADr/wsAAAAFAAA
 tile_set = ExtResource("5_4c57u")
 
 [node name="Layer2 - doors" type="TileMapLayer" parent="world"]
+light_mask = 2
 y_sort_enabled = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD4/wEAAQAAABEAAADw/wEAAQAAABEAAAD4/wUAAQAAABEAAADw/wUAAQAAABEAAADh/wgAAQAAABEAAAAIAOL/AQAAABEAAAAGAPX/AQAAABEAAAAgABIAAQAAABEAAAADABsAAQAAABEAAAAMACcAAQAAABEAAADv/9L/AQAAAAQAAAD0/9L/AQAAAAQAAAD5/9L/AQAAAAQAAAD+/9L/AQAAAAQAAADl/9T/AQAAAAQAAAAGAAEAAQAOAAAAAAAKAAEAAQAOAAAAAAAOAAEAAQAOAAAAAAASAAEAAQAOAAAAAAD6/wEAAQAOAAAAAAD2/wEAAQAOAAAAAADy/wEAAQAOAAAAAADu/wEAAQAOAAAAAADu/wUAAQAOAAAAAADy/wUAAQAOAAAAAAD2/wUAAQAOAAAAAAD6/wUAAQAOAAAAAAAIAPv/AQAOAAAAAAAQAPv/AQAOAAAAAAD4//v/AQAOAAAAAADw//v/AQAOAAAAAAABAAIAAQADAAEAAAD//wUAAQAEAAEAAAARAAEAAQAAABEAAAAIAAEAAQAAABEAAAAfAOn/AQAAABAAAAAfAOj/AQAAABAAAAAfAOf/AQAAABAAAAAfAOb/AQAAABAAAAAfAOX/AQAAABAAAAAfAOT/AQAAABAAAADM/+b/AQAAABEAAAD5/97/AQAAABEAAADy/yoAAQAAABEAAADx/wsAAQAAABEAAADx/xEAAQAAABEAAAAGAAkAAQAAABEAAAA=")
@@ -335,7 +337,25 @@ volume_db = -25.0
 stream = ExtResource("8_ycdy4")
 volume_db = -25.0
 
+[node name="Layer2 - doors_occlusion" type="TileMapLayer" parent="world"]
+z_index = -10
+y_sort_enabled = true
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD4/wEAAQAAABEAAADw/wEAAQAAABEAAAD4/wUAAQAAABEAAADw/wUAAQAAABEAAADh/wgAAQAAABEAAAAIAOL/AQAAABEAAAAGAPX/AQAAABEAAAAgABIAAQAAABEAAAADABsAAQAAABEAAAAMACcAAQAAABEAAADv/9L/AQAAAAQAAAD0/9L/AQAAAAQAAAD5/9L/AQAAAAQAAAD+/9L/AQAAAAQAAADl/9T/AQAAAAQAAAAGAAEAAQAOAAAAAAAKAAEAAQAOAAAAAAAOAAEAAQAOAAAAAAASAAEAAQAOAAAAAAD6/wEAAQAOAAAAAAD2/wEAAQAOAAAAAADy/wEAAQAOAAAAAADu/wEAAQAOAAAAAADu/wUAAQAOAAAAAADy/wUAAQAOAAAAAAD2/wUAAQAOAAAAAAD6/wUAAQAOAAAAAAAIAPv/AQAOAAAAAAAQAPv/AQAOAAAAAAD4//v/AQAOAAAAAADw//v/AQAOAAAAAAABAAIAAQADAAEAAAD//wUAAQAEAAEAAAARAAEAAQAAABEAAAAIAAEAAQAAABEAAAAfAOn/AQAAABAAAAAfAOj/AQAAABAAAAAfAOf/AQAAABAAAAAfAOb/AQAAABAAAAAfAOX/AQAAABAAAAAfAOT/AQAAABAAAADM/+b/AQAAABEAAAD5/97/AQAAABEAAADy/yoAAQAAABEAAADx/wsAAQAAABEAAADx/xEAAQAAABEAAAAGAAkAAQAAABEAAAA=")
+tile_set = ExtResource("5_4c57u")
+script = ExtResource("3_5vw27")
+metadata/id_door = true
+
+[node name="sfx_door_open" type="AudioStreamPlayer" parent="world/Layer2 - doors_occlusion"]
+stream = ExtResource("7_dg77c")
+volume_db = -25.0
+
+[node name="sfx_door_close" type="AudioStreamPlayer" parent="world/Layer2 - doors_occlusion"]
+stream = ExtResource("8_ycdy4")
+volume_db = -25.0
+
 [node name="Layer3 - props" type="TileMapLayer" parent="world"]
+light_mask = 2
 z_index = 2
 y_sort_enabled = true
 use_parent_material = true
@@ -343,6 +363,7 @@ tile_map_data = PackedByteArray("AAAJAPv/AQAOAAAAAAAJAAoAAQALAAYAAAAGAAsAAQAAAAE
 tile_set = ExtResource("2_h2yge")
 
 [node name="Layer3 - props2" type="TileMapLayer" parent="world"]
+light_mask = 2
 z_index = 2
 y_sort_enabled = true
 use_parent_material = true
