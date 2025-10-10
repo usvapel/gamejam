@@ -9,7 +9,7 @@ var health = 100
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine : StateMachine = %StateMachine
 #@onready var health_bar_ui = $"../../CanvasLayer/HealthBar"
-
+@onready var health_bar: AnimatedSprite2D = $Huds/Health/AnimatedSprite2D
 # sounds
 @onready var sfx_walk: AudioStreamPlayer = $sfx_walk
 
@@ -17,6 +17,7 @@ func _ready():
 	#if health_bar_ui:
 		#health_bar_ui.update_health(health, max_health)
 	state_machine.initialize(self)
+	health_bar.play("100")
 
 func _process( _delta: float ):
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -55,7 +56,7 @@ func update_animation (state : String):
 func take_damage(amount: int) -> void:
 	health -= amount
 	print("Player took ", amount, " damage! Health: ", health)
-	
+	health_bar.play(str(health))
 	if health <= 0:
 		die()
 

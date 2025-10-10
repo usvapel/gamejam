@@ -9,7 +9,7 @@ var multiplier = 1
 var has_exploded = false  
 
 func enter() -> void:
-	enemy.animated_sprite.play("explosion")
+	enemy.animated_sprite.play("walk1")
 	
 	has_exploded = false
 	multiplier = 1
@@ -20,7 +20,7 @@ func physics_update(delta: float) -> void:
 		return
 
 	var distance = enemy.global_position.distance_to(player.global_position)
-	if distance <= 5 and not has_exploded:
+	if distance <= 20 and not has_exploded:
 		#get_parent().transition_to("explosionstate")
 		sfx_explosion.play()
 		sfx_wander_2.stop()
