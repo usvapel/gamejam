@@ -30,6 +30,7 @@ animations = [{
 }]
 
 [node name="Collectible" type="Area2D"]
+z_index = -1
 script = ExtResource("1_1pg6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

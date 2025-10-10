@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name.to_lower() == "player":
-		body.collectibles += 1
-		print(body.collectibles)			
+		global_var.collectibles += 1
+		print(global_var.collectibles)
 		self.queue_free()
 	pass

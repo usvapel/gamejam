@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgegi0ynkcgm2"]
+
+[ext_resource type="Script" uid="uid://btc5tofs5bv00" path="res://Scripts/Doors/objective_door1.gd" id="1_j7q52"]
+[ext_resource type="TileSet" uid="uid://uo2csd606fer" path="res://tilemap_objects.tres" id="1_yh7gl"]
+
+[node name="ObjectiveDoor" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_j7q52")
+
+[node name="Closed" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+position = Vector2(-16, 13)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 13, 0, 0, 0)
+tile_set = ExtResource("1_yh7gl")
+collision_enabled = false
+
+[node name="Open" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+position = Vector2(-16, 13)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 14, 0, 0, 0)
+tile_set = ExtResource("1_yh7gl")
+collision_enabled = false
