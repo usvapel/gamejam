@@ -24,7 +24,7 @@ func explode() -> void:
 	if player and player.has_method("take_damage"):
 		var distance = enemy.global_position.distance_to(player.global_position)
 		if distance <= 50:  # Explosion radius
-			player.take_damage(50)  # Half of 100 health
+			player.take_damage(20)  # Half of 100 health
 	
 	# Remove the enemy
 	enemy.queue_free()
