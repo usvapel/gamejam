@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b15tgnborxqam"]
+[gd_scene load_steps=28 format=3 uid="uid://b15tgnborxqam"]
 
 [ext_resource type="Script" uid="uid://x2ycciryuxk0" path="res://Scripts/Player/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://bg0ulbwbayfmd" path="res://Scripts/Player/state_machine.gd" id="2_tuyoq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cijtfcmyppwwh" path="res://Scripts/Player/player_light.gd" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bg33a7divqexk" path="res://Assets/Players/No Outlines/players blue x1.png" id="6_smehm"]
 [ext_resource type="AudioStream" uid="uid://csgyjj2j7tpo7" path="res://Assets/sounds/walking5.wav" id="8_smehm"]
+[ext_resource type="Texture2D" uid="uid://bexet5qyrl8wn" path="res://Assets/UI/ui x2.png" id="9_ur7pv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bvp3"]
 radius = 2.0
@@ -58,6 +59,84 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("9_ur7pv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ni07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}],
+"loop": true,
+"name": &"full",
 "speed": 5.0
 }]
 
@@ -112,3 +191,12 @@ script = ExtResource("4_qlg0r")
 stream = ExtResource("8_smehm")
 volume_db = -32.149
 bus = &"walking"
+
+[node name="Huds" type="Node2D" parent="."]
+
+[node name="Health" type="Node2D" parent="Huds"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Huds/Health"]
+position = Vector2(206, -119)
+sprite_frames = SubResource("SpriteFrames_4ni07")
+animation = &"full"

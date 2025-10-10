@@ -1,12 +1,11 @@
 extends EnemyState
-
-var player: Node2D
+@onready var player = $"../../../../Player"
 var multiplier = 1
 var has_exploded = false  
 
 func enter() -> void:
-	enemy.animated_sprite.play("walk")
-	player = enemy.get_tree().get_first_node_in_group("player")
+	enemy.animated_sprite.play("explosion")
+	
 	has_exploded = false
 	multiplier = 1
 
@@ -14,9 +13,10 @@ func physics_update(delta: float) -> void:
 	if not player:
 		get_parent().transition_to("idle")
 		return
-	
+
 	var distance = enemy.global_position.distance_to(player.global_position)
-	if distance <= 50 and not has_exploded:
+	if distance <= 5 and not has_exploded:
+		#get_parent().transition_to("explosionstate")
 		explode()
 		return
 	if distance > 150 or not enemy.can_see_player(player):
@@ -34,6 +34,7 @@ func physics_update(delta: float) -> void:
 		enemy.move_and_slide()
 		
 func explode() -> void:
+	#print("exploding")
 	has_exploded = true
 	enemy.velocity = Vector2.ZERO
 	enemy.animated_sprite.play("explosion")

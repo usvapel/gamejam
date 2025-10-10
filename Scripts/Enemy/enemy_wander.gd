@@ -1,5 +1,5 @@
 extends EnemyState
-
+@onready var player = $"../../../../Player"
 var target: Vector2
 
 func enter() -> void:
@@ -14,9 +14,10 @@ func set_random_target() -> void:
 	enemy.nav.target_position = target
 
 func physics_update(delta: float) -> void:
-	var player = enemy.get_tree().get_first_node_in_group("player")
+	#var player = enemy.get_tree().get_first_node_in_group("player")
 	if player:
 		var distance = enemy.global_position.distance_to(player.global_position)
+		#print(distance)
 		if distance < 100 && enemy.can_see_player(player):
 			get_parent().transition_to("chasestate")
 			return
